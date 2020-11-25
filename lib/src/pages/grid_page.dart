@@ -137,6 +137,16 @@ class GridPage extends StatelessWidget {
               onTap: () {},
             ),
           ),
+          Card(
+            margin: EdgeInsets.only(bottom: 10.0),
+            child: ListTile(
+              leading: Icon(Icons.add_chart),
+              title: Text('Grafico 1'),
+              subtitle: Text('25/11/2020'),
+              trailing: Icon(Icons.chevron_right),
+              onTap: () {},
+            ),
+          ),
 
         ],
       )
