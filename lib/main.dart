@@ -11,6 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    SystemChrome.setSystemUIOverlayStyle( SystemUiOverlayStyle.light.copyWith(
+        statusBarColor: Colors.transparent
+    ));
+
     //SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
     //   systemNavigationBarColor: Colors.black
