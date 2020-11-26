@@ -16,8 +16,8 @@ class GridPage extends StatelessWidget {
             child: Column(
               children: [
                 _titulos(),
-                //_botonesRedondeadosTabla(), //MAL METODO
-                _gridBotones()
+                //_botonesRedondeadosTabla(context), //MAL METODO
+                _gridBotones(context)
                 // _cardsToChart(context)
               ],
             ),
@@ -94,142 +94,162 @@ class GridPage extends StatelessWidget {
   Widget _bottomNavigationBar(BuildContext context) {
     return Theme(
       data: Theme.of(context).copyWith(
-        canvasColor: Color.fromRGBO(55, 57, 84, 1.0),
-        primaryColor: Colors.pinkAccent,
-        textTheme: Theme.of(context).textTheme.copyWith(
-          caption: TextStyle(color: Color.fromRGBO(116, 117, 152, 1.0))
-        )
-      ),
+          canvasColor: Color.fromRGBO(55, 57, 84, 1.0),
+          primaryColor: Colors.pinkAccent,
+          textTheme: Theme.of(context).textTheme.copyWith(
+              caption: TextStyle(color: Color.fromRGBO(116, 117, 152, 1.0)))),
       child: BottomNavigationBar(
         showUnselectedLabels: false,
         showSelectedLabels: false,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.calendar_today, size: 30,), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.bubble_chart, size: 30,), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.supervised_user_circle, size: 30,), label: ""),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.calendar_today,
+                size: 30,
+              ),
+              label: ""),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.bubble_chart,
+                size: 30,
+              ),
+              label: ""),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.supervised_user_circle,
+                size: 30,
+              ),
+              label: ""),
         ],
       ),
     );
   }
 
-
   Widget _cardsToChart(BuildContext context) {
-
     return Container(
-
-      padding: EdgeInsets.all(20),
-      child: Column(
-        children: [
-          Card(
-            margin: EdgeInsets.only(bottom: 10.0),
-            child: ListTile(
-              leading: Icon(Icons.add_chart),
-              title: Text('Grafico 1'),
-              subtitle: Text('25/11/2020'),
-              trailing: Icon(Icons.chevron_right),
-              onTap: () {
-                Navigator.pushNamed(context, "chart" );
-              },
+        padding: EdgeInsets.all(20),
+        child: Column(
+          children: [
+            Card(
+              margin: EdgeInsets.only(bottom: 10.0),
+              child: ListTile(
+                leading: Icon(Icons.add_chart),
+                title: Text('Grafico 1'),
+                subtitle: Text('25/11/2020'),
+                trailing: Icon(Icons.chevron_right),
+                onTap: () {
+                  Navigator.pushNamed(context, "chart");
+                },
+              ),
             ),
-          ),
-          Card(
-            margin: EdgeInsets.only(bottom: 10.0),
-            child: ListTile(
-              leading: Icon(Icons.add_chart),
-              title: Text('Grafico 1'),
-              subtitle: Text('25/11/2020'),
-              trailing: Icon(Icons.chevron_right),
-              onTap: () {},
+            Card(
+              margin: EdgeInsets.only(bottom: 10.0),
+              child: ListTile(
+                leading: Icon(Icons.add_chart),
+                title: Text('Grafico 1'),
+                subtitle: Text('25/11/2020'),
+                trailing: Icon(Icons.chevron_right),
+                onTap: () {},
+              ),
             ),
-          ),
-          Card(
-            margin: EdgeInsets.only(bottom: 10.0),
-            child: ListTile(
-              leading: Icon(Icons.add_chart),
-              title: Text('Grafico 1'),
-              subtitle: Text('25/11/2020'),
-              trailing: Icon(Icons.chevron_right),
-              onTap: () {},
+            Card(
+              margin: EdgeInsets.only(bottom: 10.0),
+              child: ListTile(
+                leading: Icon(Icons.add_chart),
+                title: Text('Grafico 1'),
+                subtitle: Text('25/11/2020'),
+                trailing: Icon(Icons.chevron_right),
+                onTap: () {},
+              ),
             ),
-          ),
-          Card(
-            margin: EdgeInsets.only(bottom: 10.0),
-            child: ListTile(
-              leading: Icon(Icons.add_chart),
-              title: Text('Grafico 1'),
-              subtitle: Text('25/11/2020'),
-              trailing: Icon(Icons.chevron_right),
-              onTap: () {},
+            Card(
+              margin: EdgeInsets.only(bottom: 10.0),
+              child: ListTile(
+                leading: Icon(Icons.add_chart),
+                title: Text('Grafico 1'),
+                subtitle: Text('25/11/2020'),
+                trailing: Icon(Icons.chevron_right),
+                onTap: () {},
+              ),
             ),
-          ),
-
-        ],
-      )
-    );
-
-
+          ],
+        ));
   }
 
-  Widget _botonesRedondeadosTabla() {
-
+  Widget _botonesRedondeadosTabla(BuildContext context) {
     return Table(
       children: [
-        TableRow(
-          children: [
-            _crearBotonRedondeado(Colors.blue, Icons.border_all, 'General'),
-            _crearBotonRedondeado(Colors.purpleAccent, Icons.directions_bike, 'Algo largo'),
-          ]
-        ),
-        TableRow(
-            children: [
-              _crearBotonRedondeado(Colors.blue, Icons.border_all, 'General'),
-              _crearBotonRedondeado(Colors.purpleAccent, Icons.directions_bike, 'Algo largo'),
-            ]
-        ),
-        TableRow(
-            children: [
-              _crearBotonRedondeado(Colors.blue, Icons.border_all, 'General'),
-              _crearBotonRedondeado(Colors.purpleAccent, Icons.directions_bike, 'Algo largo'),
-            ]
-        ),
-        TableRow(
-            children: [
-              _crearBotonRedondeado(Colors.blue, Icons.border_all, 'General'),
-              _crearBotonRedondeado(Colors.purpleAccent, Icons.directions_bike, 'Algo largo'),
-            ]
-        ),
+        TableRow(children: [
+          _crearBotonRedondeado(
+              context, Colors.blue, Icons.border_all, 'General'),
+          _crearBotonRedondeado(context, Colors.purpleAccent,
+              Icons.directions_bike, 'Algo largo'),
+        ]),
+        TableRow(children: [
+          _crearBotonRedondeado(
+              context, Colors.blue, Icons.border_all, 'General'),
+          _crearBotonRedondeado(context, Colors.purpleAccent,
+              Icons.directions_bike, 'Algo largo'),
+        ]),
+        TableRow(children: [
+          _crearBotonRedondeado(
+              context, Colors.blue, Icons.border_all, 'General'),
+          _crearBotonRedondeado(context, Colors.purpleAccent,
+              Icons.directions_bike, 'Algo largo'),
+        ]),
+        TableRow(children: [
+          _crearBotonRedondeado(
+              context, Colors.blue, Icons.border_all, 'General'),
+          _crearBotonRedondeado(context, Colors.purpleAccent,
+              Icons.directions_bike, 'Algo largo'),
+        ]),
       ],
     );
   }
 
-  Widget _crearBotonRedondeado(Color color, IconData icon, String text) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(20.0),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-        child: Container(
-          height: 180.0,
-          //margin: EdgeInsets.all(15.0),
-          decoration: BoxDecoration(
-            color: Color.fromRGBO(62, 66, 107, 0.7),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              CircleAvatar(
-                backgroundColor: color,
-                radius: 35.0,
-                child: Icon(icon, color: Colors.white, size: 30.0,),
-              ),
-              Text(text, style: TextStyle(color: Colors.pinkAccent),)
-            ],
+  Widget _crearBotonRedondeado(
+      BuildContext context, Color color, IconData icon, String text) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, "chart");
+      },
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20.0),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+          child: Container(
+            height: 180.0,
+            //margin: EdgeInsets.all(15.0),
+            padding: EdgeInsets.all(15.0),
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(62, 66, 107, 0.7),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CircleAvatar(
+                  backgroundColor: color,
+                  radius: 35.0,
+                  child: Icon(
+                    icon,
+                    color: Colors.white,
+                    size: 30.0,
+                  ),
+                ),
+                Text(
+                  text,
+                  style: TextStyle(color: Colors.pinkAccent,),
+                  textAlign: TextAlign.center,
+                )
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget _gridBotones() {
+  Widget _gridBotones(BuildContext context) {
     return GridView.count(
       shrinkWrap: true,
       crossAxisCount: 2,
@@ -238,16 +258,19 @@ class GridPage extends StatelessWidget {
       padding: EdgeInsets.all(20.0),
       primary: false,
       children: [
-        _crearBotonRedondeado(Colors.blue, Icons.border_all, 'General'),
-        _crearBotonRedondeado(Colors.purpleAccent, Icons.directions_bike, 'Algo largo'),
-        _crearBotonRedondeado(Colors.blue, Icons.border_all, 'General'),
-        _crearBotonRedondeado(Colors.purpleAccent, Icons.directions_bike, 'Algo largo'),
-        _crearBotonRedondeado(Colors.blue, Icons.border_all, 'General'),
-        _crearBotonRedondeado(Colors.purpleAccent, Icons.directions_bike, 'Algo largo'),
-        _crearBotonRedondeado(Colors.blue, Icons.border_all, 'General'),
+        _crearBotonRedondeado(
+            context, Colors.blue, Icons.border_all, 'General'),
+        _crearBotonRedondeado(
+            context, Colors.purpleAccent, Icons.directions_bike, 'Algo largo'),
+        _crearBotonRedondeado(context, Colors.blue, Icons.bar_chart, 'General'),
+        _crearBotonRedondeado(
+            context, Colors.purpleAccent, Icons.insert_chart, 'Algo largo'),
+        _crearBotonRedondeado(context, Colors.blue, Icons.pie_chart, 'General'),
+        _crearBotonRedondeado(
+            context, Colors.yellow, Icons.directions_bike, 'Algo largo'),
+        _crearBotonRedondeado(
+            context, Colors.greenAccent, Icons.border_all, 'To some, a yogi is an ascension for discovering.'),
       ],
     );
   }
-
-
 }
